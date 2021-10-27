@@ -40,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: SingleChildScrollView(
             child: Column(
               children: [
+
                 Text("Child Photo",style: TextStyle(
                     fontSize: 30,fontWeight: FontWeight.bold,
                     color: Colors.purple
