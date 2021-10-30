@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MyApp());
 }
+
+double conHeight=120;
+double conWidth=120;
+
 var imgsrcb="https://thumbs.dreamstime.com/z/tiger-portrait-horizontal-11392212.jpg";
 
 class MyApp extends StatelessWidget {
@@ -40,6 +44,33 @@ class _MyHomePageState extends State<MyHomePage> {
           child: SingleChildScrollView(
             child: Column(
               children: [
+                InkWell(
+                  onTap: (){
+                    setState(() {
+                      conHeight=300;
+                      conWidth=300;
+                    });
+                  },
+                  onDoubleTap: (){
+                    setState(() {
+                      conHeight=400;
+                      conWidth=400;
+                    });
+                  },
+                  child: AnimatedContainer(
+                    height: conHeight,
+                    width: conWidth,
+                    decoration: BoxDecoration(
+                        color: Colors.deepPurple,
+                        image: DecorationImage(image: NetworkImage("https://thumbs.dreamstime.com/z/tiger-portrait-horizontal-11392212.jpg",
+                        ),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: BorderRadius.circular(180),
+                        border: Border.all(color: Colors.pink,width: 5)
+                    ), duration: Duration(microseconds: 4000),
+                  ),
+                ),
 
                 Text("Child Photo",style: TextStyle(
                     fontSize: 30,fontWeight: FontWeight.bold,
@@ -50,9 +81,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 Image.asset("assets/image/image3.jpg"),
                 Image.asset("assets/image/image4.jpg"),
                 Image.asset("assets/image/image5.jpg"),
-
-
-
                 //Image.network(imgsrcb),
 
               ],
