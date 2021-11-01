@@ -82,7 +82,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 Image.asset("assets/image/image4.jpg"),
                 Image.asset("assets/image/image5.jpg"),
                 //Image.network(imgsrcb),
-
               ],
             ),
           ),

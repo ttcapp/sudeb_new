@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sudeb02">
    <application
-        android:label="sudeb02"
+        android:label="Sudeb Mazumder"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
