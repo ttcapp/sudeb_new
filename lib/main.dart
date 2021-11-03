@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:slide_drawer/slide_drawer.dart';
+import 'package:sudeb02/Profile.dart';
 
 void main() {
   runApp(MyApp());
 }
+
 
 double conHeight=120;
 double conWidth=120;
@@ -10,12 +13,33 @@ double conWidth=120;
 var imgsrcb="https://thumbs.dreamstime.com/z/tiger-portrait-horizontal-11392212.jpg";
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+   MyApp({Key? key}) : super(key: key);
+  final navigatorKey=GlobalKey<NavigatorState>();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHomePage(),
+      navigatorKey: navigatorKey,
+      home: SlideDrawer(
+        backgroundColor: Colors.purpleAccent.shade200,
+        items: [
+          MenuItem('Home',icon: Icons.account_balance,
+              onTap: (){}),
+          MenuItem('Project',icon: Icons.ac_unit,
+              onTap: (){}),
+          MenuItem('Favourite',icon: Icons.favorite,
+              onTap: (){}),
+          MenuItem('Profile',icon: Icons.account_circle_sharp,
+              onTap: (
+                  ){
+            navigatorKey.currentState!
+                .push(MaterialPageRoute(builder: (context)=>Profile()));
+              }),
+          MenuItem('Setting',icon: Icons.settings,
+              onTap: (){}),
+        ],
+        child: MyHomePage(),
+      ),
     );
   }
 }
@@ -33,6 +57,12 @@ class _MyHomePageState extends State<MyHomePage> {
     double width= MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          // call toggle from SlideDrawer to alternate between open and close
+          // when pressed menu button
+          onPressed: () => SlideDrawer.of(context)!.toggle(),
+        ),
         centerTitle: true,
         title: Text("My First App"),
       ),
