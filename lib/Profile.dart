@@ -1,19 +1,22 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:sudeb02/log_in.dart';
 
-class Profile extends StatefulWidget {
-  const Profile({Key? key}) : super(key: key);
 
-  @override
-  _ProfileState createState() => _ProfileState();
+void main() {
+  runApp( MyApp());
 }
-
-class _ProfileState extends State<Profile> {
+class MyApp extends StatelessWidget {
+  MyApp({Key? key}) : super(key: key);
+  final navigatorKey = GlobalKey<NavigatorState>();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Profile"),
-      ),
-    );
+    return
+      MaterialApp(
+        navigatorKey: navigatorKey,
+        home:  LogIn(),
+      );
   }
 }
+
